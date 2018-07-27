@@ -2,6 +2,7 @@
   <div id="app">
     <Header></Header>
     <router-view name="main"></router-view>
+    <router-view name="article"></router-view>
   </div>
 </template>
 
@@ -16,6 +17,6 @@ export default {
 
 <style>
 #app {
-  
+
 }
 </style>
