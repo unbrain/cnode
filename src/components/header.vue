@@ -1,9 +1,10 @@
 <template>
   <div class="header clearfix">
-    <img src="https://o4j806krb.qnssl.com/public/images/cnodejs_light.svg" alt="">
+    <router-link :to="{name: 'root'}"><img src="https://o4j806krb.qnssl.com/public/images/cnodejs_light.svg" alt=""></router-link>
     <ul>
       <li>
-        <a href="#">首页</a>
+        <router-link :to="{name: 'root'}"><a href="#">首页</a></router-link>
+        
       </li>
       <li>
         <a href="#">新手入门</a>

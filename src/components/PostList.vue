@@ -23,7 +23,10 @@
         </li>
         <li v-for="post in posts">
           <!--头像-->
-          <img :src="post.author.avatar_url" alt="">
+          <router-link :to="{name: 'user_info',params:{
+            name: post.author.loginname
+          }}"><img :src="post.author.avatar_url" alt=""></router-link>
+          
           <!--回复/浏览-->
           <span class="allcount">
             <span class="reply_count">{{post.reply_count}}</span>
@@ -55,7 +58,7 @@
         </li>
         <li>
           <!--分页-->
-          <pagination @handleList="renderList"></pagination>
+
         </li>
       </ul>
     </div>
@@ -83,7 +86,6 @@ export default {
         .then(res => {
           this.isLoading = false //加载成功，去除动画
           this.posts = res.data.data
-          console.log(res)
         })
         .catch(err => {
           //处理返回失败后的问题

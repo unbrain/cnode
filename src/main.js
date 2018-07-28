@@ -13,7 +13,9 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
-  components: { App },
+  components: {
+    App
+  },
   template: '<App/>'
 })
 
@@ -38,8 +40,7 @@ Vue.filter('formatDate', function (str) {
   } else {
     return parseInt(time / 31536000000) + '年前'
   }
-}
-)
+})
 //处理显示板块的文字
 Vue.filter('tabFormatter', function (post) {
   if (post.top == true) {
@@ -51,6 +52,18 @@ Vue.filter('tabFormatter', function (post) {
   } else if (post.tab == 'share') {
     return '分享'
   } else if (post.tab == 'dev') {
+    return '测试'
+  } else {
+    return '招聘'
+  }
+})
+
+Vue.filter('tabFormat', function (tab) {
+  if (tab == 'ask') {
+    return '问答'
+  } else if (tab == 'share') {
+    return '分享'
+  } else if (tab == 'dev') {
     return '测试'
   } else {
     return '招聘'
