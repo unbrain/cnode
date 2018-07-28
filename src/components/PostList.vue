@@ -159,7 +159,6 @@ export default {
   }
 }
 .posts {
-  width: 85%;
   margin-left: auto;
   margin-right: auto;
   border-radius: 30px;

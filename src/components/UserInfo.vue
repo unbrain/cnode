@@ -14,7 +14,7 @@
       <div class="topics">
         <p>最近创建的话题</p>
         <ul>
-          <li v-for="item in post.recent_topics">
+          <li v-for="item in recenttopics5">
             <!--头像-->
             <img :src="item.author.avatar_url" alt="">
             <!--回复/浏览-->
@@ -98,6 +98,13 @@ export default {
         .catch(err => {
           console.log(err)
         })
+    }
+  },
+  computed:{
+    recenttopics5(){
+      if(this.post.recent_topics){
+        return this.post.recent_topics.splice(0,5) 
+      }
     }
   },
   beforeMount() {

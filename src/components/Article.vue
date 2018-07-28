@@ -16,7 +16,7 @@
         </div>
         <div id="reply">
           <div class="topbar" v-if="">
-            {{post.replies.length}} 回复
+            {{replength}} 回复
           </div>
           <div v-for="v, k in post.replies" class="replySec">
             <router-link :to="{
@@ -25,7 +25,7 @@
                 name: v.author.loginname
               }
             }"><img :src="v.author.avatar_url" alt=""></router-link>
-            
+
             <span>{{v.author.loginname}}</span> {{k+1}}楼 {{v.create_at | formatDate}}
             <p v-html="v.content"></p>
           </div>
@@ -61,9 +61,18 @@ export default {
   beforeMount() {
     this.getAritleData()
   },
-  watch: {
+  computed: {
+    replength() {
+      if (this.post.replies.length) {
+        return this.post.replies.length
+      } else {
+        return 0
+      }
+    }
+  },
+  watch: {//监控路由
     $route(to, from) {
-      his.getAritleData()
+      this.getAritleData()
     }
   }
 }
@@ -78,7 +87,6 @@ export default {
 .article {
   padding-top: 15px;
   margin-left: auto;
-  width: 80%;
   margin-right: auto;
 }
 .topbar {
@@ -97,7 +105,7 @@ export default {
   margin-top: 15px;
 }
 
-.replySec>a>img {
+.replySec > a > img {
   width: 30px;
   height: 30px;
   position: relative;

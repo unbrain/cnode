@@ -1,8 +1,11 @@
 <template>
   <div id="app">
     <Header></Header>
-    <router-view name="main"></router-view>
-    <router-view name="article"></router-view>
+    <div class="main">
+      <router-view name="sliderbar"></router-view>
+      <router-view name="main"></router-view>
+    </div>
+
   </div>
 </template>
 
@@ -11,12 +14,16 @@ import Header from './components/header'
 import PostList from './components/PostList'
 export default {
   name: 'App',
-  components:{Header,PostList}
+  components: { Header, PostList }
 }
 </script>
 
-<style>
+<style lang="scss">
 #app {
-
+  background-color: #e1e1e1;
+  .main {
+    width: 80%;
+    margin: 0 auto;
+  }
 }
 </style>
